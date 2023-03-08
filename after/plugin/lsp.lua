@@ -10,16 +10,16 @@ lsp.ensure_installed({
   'intelephense',
 })
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local bufopt = { noremap = true, silent = true, buffer = bufnr }
   local bind = vim.keymap.set
 
-  bind('n', 'gd', "<cmd>lua require'telescope.builtin'.lsp_definitions()<CR>", bufopt)
+  bind('n', '<leader>gd', "<cmd>lua require'telescope.builtin'.lsp_definitions()<CR>", bufopt)
 
-  -- bind('n', 'K', vim.lsp.buf.hover, bufopt)
-  bind('n', 'K', '<cmd>Lspsaga hover_doc<cr>', bufopt)
+  bind('n', 'K', vim.lsp.buf.hover, bufopt)
+  -- bind('n', 'K', '<cmd>Lspsaga hover_doc<cr>', bufopt)
 
   bind('n', '<leader>ca', '<cmd>Lspsaga code_action<cr>', bufopt)
   bind('n', '<leader>lf', function() vim.lsp.buf.format({ async = true }) end, bufopt)
