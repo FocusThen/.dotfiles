@@ -35,3 +35,6 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/focusthen/init.lua
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- vim.keymap.set('', 'f', '<cmd>HopChar1CurrentLine<cr>', { noremap = true, silent = true })
+-- vim.keymap.set('', 'F', '<cmd>HopChar2CurrentLine<cr>', { noremap = true, silent = true })
