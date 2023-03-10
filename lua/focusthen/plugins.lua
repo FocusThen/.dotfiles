@@ -16,6 +16,8 @@ if not ok then return end
 
 lazy.setup({
   -- Theme
+  {'folke/tokyonight.nvim', name="tokyonight"},
+
   { 'rose-pine/neovim', name = 'rose-pine' },
 
   -- LSP
