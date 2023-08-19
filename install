@@ -1,4 +1,4 @@
-#!/bin/zsh zsh
+#!/opt/homebrew/bin/zsh
 
 pushd $DOTFILES
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")

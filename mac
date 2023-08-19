@@ -1,7 +1,8 @@
-#!/bin/zsh zsh
+#!/opt/homebrew/bin/zsh
+
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="bin,nvim,zsh"
+    STOW_FOLDERS="bin,nvim"
 fi
 
 if [[ -z $DOTFILES ]]; then
