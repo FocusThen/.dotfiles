@@ -1,5 +1,5 @@
 # script .local/scripts path
-export PATH="$PATH:/Users/mtezcan/.local/bin"
+export PATH="$PATH:/Users/mtezcan/.local/scripts"
 
 
 # Where should I put you?
