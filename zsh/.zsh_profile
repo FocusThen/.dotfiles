@@ -1,0 +1,6 @@
+# script .local/scripts path
+export PATH="$PATH:/Users/mtezcan/.local/bin"
+
+
+# Where should I put you?
+bindkey -s ^f "tmux-sessionizer\n"
