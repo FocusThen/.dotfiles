@@ -15,9 +15,8 @@ vpn_disconnect() {
 if [ "$1" == "-c" ]; then
     vpn_disconnect;
     vpn_connect;
-else
-    vpn_connect;
 fi
+
 # if -x is passed, disconnect all connections
 if [ "$1" == "-x" ]; then
     vpn_disconnect;
