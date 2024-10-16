@@ -1,6 +1,9 @@
 # script .local/scripts path
 export PATH="$PATH:/Users/mtezcan/.local/scripts"
-
+export PATH="$PATH:/Users/mtezcan/go/bin"
 
 # Where should I put you?
 bindkey -s ^f "tmux-sessionizer\n"
+
+# Brew
+eval $(/opt/homebrew/bin/brew shellenv)
