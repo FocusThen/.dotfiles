@@ -1,19 +1,45 @@
 #!/bin/bash
 
 
-# Connect to VPN configuration, usage:  vpn_connect "US Seattle";
 vpn_connect() {
-    osascript -e 'tell application "Tunnelblick"' -e '  get name of first configuration' -e '  connect result' -e '  repeat until result = "CONNECTED"' -e '    delay 1' -e '    get state of first configuration' -e '  end repeat' -e 'end tell'
+    local code2fa="2457$(2fa 'mgc')"
+    osascript -e 'tell application "System Events" to tell process "OpenVPN Connect" to tell menu bar item 1 of menu bar 2' \
+    -e 'click' \
+    -e 'get menu items of menu 1' \
+    -e '
+      try
+        click menu item "Connect" of menu 1
+        do shell script "echo OpenVPN ready to connect"
+      on error
+        key code 53
+        do shell script "echo Already connected"
+      end try' \
+    -e "
+  delay 0.5
+  set textBuffer to \"$code2fa\"
+  repeat with i from 1 to count characters of textBuffer
+    keystroke (character i of textBuffer)
+    delay 0.05
+  end repeat"\
+    -e 'keystroke return'\
+   -e 'end tell'
 }
 
-# Disconnect from all Tunnelblick connections, usage: vpn_disconnect;
 vpn_disconnect() {
-    osascript -e "tell application \"Tunnelblick\"" -e "disconnect all" -e "end tell"              ⏎
+    osascript -e 'tell application "System Events" to tell process "OpenVPN Connect" to tell menu bar item 1 of menu bar 2' \
+    -e 'click' \
+    -e 'get menu items of menu 1' \
+    -e '
+      try
+        click menu item "Disconnect" of menu 1
+      on error
+        key code 53
+      end try' \
+    -e 'end tell'
 }
 
 # if -c is passed, disconnect all connections before connecting to the new one
 if [ "$1" == "-c" ]; then
-    vpn_disconnect;
     vpn_connect;
 fi
 
