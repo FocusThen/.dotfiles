@@ -1,2 +1,5 @@
 bin/.local/bin
+bin/.local/share
+bin/.local/state
 nvim/.config/nvim/plugin/packer_compiled.lua
+
