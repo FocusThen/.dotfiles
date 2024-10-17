@@ -1,4 +1,4 @@
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
-	url = https://github.com/FocusThen/init.lua.github
+	url = https://github.com/FocusThen/init.lua
     branch = master
