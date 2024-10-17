@@ -22,6 +22,7 @@ vpn_connect() {
     delay 0.05
   end repeat"\
     -e 'keystroke return'\
+    -e 'tell application "System Events" to keystroke "w" using command down'\
    -e 'end tell'
 }
 
